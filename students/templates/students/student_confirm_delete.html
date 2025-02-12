@@ -1,0 +1,23 @@
+{% extends "students/base.html" %}
+
+{% block title %}Supprimer l'Étudiant{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-header">
+                <h2>Supprimer l'Étudiant</h2>
+            </div>
+            <div class="card-body">
+                <p>Êtes-vous sûr de vouloir supprimer l'étudiant "{{ student.first_name }} {{ student.last_name }}" ?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Confirmer la suppression</button>
+                    <a href="{% url 'students:student_list' %}" class="btn btn-secondary">Annuler</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
